@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "supplier": "Clinica Uno",
+    "category": "Servicios de salud",
+    "expire": "18/02/2022",
+    "price": 200.0,
+    "responsible": "Jesus Caldas",
+    "state": "Por pagar",
+    "payment": "FE1658568",
+    "items": 12
+  },
+  {
+    "id": 2,
+    "supplier": "Consulting",
+    "category": "Legal",
+    "expire": "20/02/2022",
+    "price": 200.0,
+    "responsible": "Jesus Caldas",
+    "state": "Por pagar",
+    "payment": "FE1658568",
+    "items": 12
+  },
+  {
+    "id": 3,
+    "supplier": "Software services",
+    "category": "Informatica",
+    "expire": "20/02/2022",
+    "price": 200.0,
+    "responsible": "Jesus Caldas",
+    "state": "Por pagar",
+    "payment": "FE1658568",
+    "items": 12
+  },
+  {
+    "id": 4,
+    "supplier": "Uno Aseo",
+    "category": "Servicios de aseo",
+    "expire": "20/02/2022",
+    "price": 200.0,
+    "responsible": "Jesus Caldas",
+    "state": "Por pagar",
+    "payment": "FE1658568",
+    "items": 12
+  },
+  {
+    "id": 5,
+    "supplier": "Restaurante Comida express",
+    "category": "Alimentos",
+    "expire": "20/02/2022",
+    "price": 200.0,
+    "responsible": "Jesus Caldas",
+    "state": "Por pagar",
+    "payment": "FE1658568",
+    "items": 12
+  },
+  {
+    "id": 6,
+    "supplier": "Accesorios informaticos",
+    "category": "Ventas",
+    "expire": "20/02/2022",
+    "price": 200.0,
+    "responsible": "Jesus Caldas",
+    "state": "Por pagar",
+    "payment": "FE1658568",
+    "items": 12
+  },
+  {
+    "id": 7,
+    "supplier": "Musica y globos",
+    "category": "Entretenimiento",
+    "expire": "20/02/2022",
+    "price": 200.0,
+    "responsible": "Jesus Caldas",
+    "state": "Por pagar",
+    "payment": "FE1658568",
+    "items": 12
+  },
+  {
+    "id": 8,
+    "supplier": "Compuatdoras y algo mas",
+    "category": "Ventas",
+    "expire": "20/02/2022",
+    "price": 200.0,
+    "responsible": "Jesus Caldas",
+    "state": "Por pagar",
+    "payment": "FE1658568",
+    "items": 12
+  },
+  {
+    "id": 9,
+    "supplier": "Lisshop",
+    "category": "Ventas",
+    "expire": "20/02/2022",
+    "price": 200.0,
+    "responsible": "Jesus Caldas",
+    "state": "Por pagar",
+    "payment": "FE1658568",
+    "items": 12
+  },
+  {
+    "id": 10,
+    "supplier": "Consulting",
+    "category": "Legal",
+    "expire": "20/02/2022",
+    "price": 200.0,
+    "responsible": "Jesus Caldas",
+    "state": "Por pagar",
+    "payment": "FE1658568",
+    "items": 12
+  }
+]

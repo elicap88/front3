@@ -1,0 +1,9 @@
+<aside class="sideBarContainer">
+  <h1 class="sideBarTitle">{{ title }}</h1>
+  <ul class="sideBarList">
+    <li class="sideBarOptions" *ngFor="let option of sideBarOption">
+      <a [routerLink]="['{{ option.url }}']"></a>
+      {{ option.label }}
+    </li>
+  </ul>
+</aside>

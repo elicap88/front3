@@ -1,0 +1,47 @@
+<main class="container">
+  <h1 class="loginTitle">
+    {{ title }}
+  </h1>
+  <section class="loginContainer" *ngIf="continue == false; else pass">
+    <div class="loginCard">
+      <div class="loginCardTitle">
+        <h1>Iniciar sesión</h1>
+      </div>
+      <div class="logingCardMessage">Ingresa tu correo electrónico</div>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Correo electrónico</mat-label>
+        <input matInput placeholder="" [(ngModel)]="email" type="email" />
+      </mat-form-field>
+      <div class="loginButtonCotainer">
+        <button (click)="continueToPass()">Continuar</button>
+      </div>
+    </div>
+  </section>
+  <ng-template #pass>
+    <section class="loginContainer">
+      <div class="loginCard">
+        <div class="loginCardTitle">
+          <mat-icon (click)="back()">keyboard_backspace</mat-icon>
+          <h1>Iniciar sesión</h1>
+        </div>
+        <div class="loginEmailPartialView">{{ email }}</div>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input
+            matInput
+            placeholder=""
+            type="password"
+            [(ngModel)]="password"
+          />
+          <mat-icon matSuffix>visibility_off</mat-icon>
+        </mat-form-field>
+        <div class="loginButtonCotainer">
+          <button (click)="login()">Inicia sesión</button>
+        </div>
+        <div class="loginOtherOptionLogin">
+          Iniciar sesión con clave dinámica
+        </div>
+      </div>
+    </section>
+  </ng-template>
+</main>

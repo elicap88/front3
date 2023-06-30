@@ -1,0 +1,20 @@
+.container {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  height: 100vh;
+  gap: 1rem;
+
+  & .sideBarMenu {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  & .containerApp {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 2rem 1rem 1rem 0;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+  }
+}

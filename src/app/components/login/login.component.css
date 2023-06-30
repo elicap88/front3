@@ -1,0 +1,87 @@
+:host {
+  --title-text-color: #373d6f;
+  --card-border-color: #bebebe;
+  --background-email-color: #f3f9f9;
+  --button-success: #174afb;
+}
+
+h1 {
+  color: var(--title-text-color);
+}
+
+.container {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+
+  & .loginTitle {
+    padding: 1rem;
+  }
+
+  & .loginContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+
+    & .loginCard {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-flow: column;
+      padding: 2rem;
+      border: 1px solid var(--card-border-color);
+      border-radius: 1rem;
+      -webkit-border-radius: 1rem;
+      -moz-border-radius: 1rem;
+      -ms-border-radius: 1rem;
+      -o-border-radius: 1rem;
+      gap: 1rem;
+      width: 30rem;
+      height: 25rem;
+
+      & .loginCardTitle {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        & span {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      & .loginEmailPartialView {
+        background-color: var(--background-email-color);
+        padding: 1rem 2rem;
+        border-radius: 3rem;
+        -webkit-border-radius: 3rem;
+        -moz-border-radius: 3rem;
+        -ms-border-radius: 3rem;
+        -o-border-radius: 3rem;
+      }
+
+      & .example-full-width {
+        width: 70%;
+      }
+
+      & .loginButtonCotainer {
+        width: 70%;
+        display: flex;
+        flex-flow: column;
+
+        > button {
+          background-color: var(--button-success);
+          color: #fff;
+          padding: 1rem;
+          border: none;
+          border-radius: 2rem;
+          -webkit-border-radius: 2rem;
+          -moz-border-radius: 2rem;
+          -ms-border-radius: 2rem;
+          -o-border-radius: 2rem;
+        }
+      }
+    }
+  }
+}

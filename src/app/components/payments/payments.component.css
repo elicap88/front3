@@ -1,0 +1,121 @@
+:host {
+  --title-text-color: #373d6f;
+  --card-border-color: #bebebe;
+  --background-email-color: #f3f9f9;
+  --button-success: #174afb;
+  --background-notifications: #7f9bfb;
+  --divider-color: #eaeaea;
+}
+
+.container {
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+  padding: 2rem;
+
+  & .paymentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > p {
+      color: var(--title-text-color);
+      font-size: 2rem;
+    }
+
+    > button {
+      color: var(--button-success);
+      border: 1px solid var(--button-success);
+      background-color: #fff;
+      width: 7rem;
+      height: 3rem;
+      border-radius: 2rem;
+      -webkit-border-radius: 2rem;
+      -moz-border-radius: 2rem;
+      -ms-border-radius: 2rem;
+      -o-border-radius: 2rem;
+    }
+
+    > button:hover {
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
+  & .paymentNavBarContainer {
+    padding: 1rem;
+
+    & .paymentNavBar {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      padding: 0;
+
+      & .paymentOptions {
+        display: flex;
+        gap: 0.5rem;
+
+        > p {
+          height: 1rem;
+          padding: 1rem 0 0.5rem;
+          display: flex;
+          align-items: center;
+          border-bottom: 3px solid transparent;
+        }
+
+        > p:hover {
+          border-bottom: 3px solid var(--background-notifications);
+          cursor: pointer;
+        }
+
+        > span.noNotificacion {
+          width: 2rem;
+          height: 1rem;
+          border: 1px solid var(--card-border-color);
+          color: var(--card-border-color);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 3rem;
+          font-size: 12px;
+          font-weight: bold;
+        }
+
+        > span.notification {
+          width: 2rem;
+          height: 1rem;
+          background-color: var(--background-notifications);
+          color: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 3rem;
+          font-size: 12px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  & .paymentInformation {
+    display: flex;
+    padding: 1rem;
+    gap: 5rem;
+
+    & .paymentBody {
+      padding-right: 5rem;
+      border-right: 2px solid var(--divider-color);
+
+      & .paymentContainer {
+        display: flex;
+        gap: 0.5rem;
+        flex-flow: column;
+      }
+    }
+  }
+
+  & .divider {
+    background-color: var(--divider-color);
+    height: 2px;
+  }
+}
