@@ -11,42 +11,42 @@ export class SidebarComponent {
   sideBarOption: SideBarOption[] = [
     {
       label: 'Menú 1',
-      icon: '#',
+      icon: 'home',
       url: '#',
     },
     {
       label: 'Menú 2',
-      icon: '#',
+      icon: 'timeline',
       url: '#',
     },
     {
       label: 'Pagos',
-      icon: '#',
+      icon: 'input',
       url: 'payments',
     },
     {
       label: 'Menú 3',
-      icon: '#',
+      icon: 'check_box',
       url: '#',
     },
     {
       label: 'Bancos',
-      icon: '#',
+      icon: 'account_balance',
       url: '/banks',
     },
     {
       label: 'Perfil',
-      icon: '#',
+      icon: 'person_outline',
       url: 'profile',
     },
     {
       label: 'Menú 5',
-      icon: '#',
+      icon: 'settings',
       url: '#',
     },
     {
-      label: 'Logout',
-      icon: '#',
+      label: 'Cerrar Sesión',
+      icon: 'login',
       url: '/login',
     },
   ];

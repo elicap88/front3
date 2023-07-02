@@ -3,7 +3,16 @@
     <h1 class="sideBarTitle">{{ title }}</h1>
     <ul class="sideBarList">
       <li class="sideBarOptions" *ngFor="let option of sideBarOption">
-        <a routerLink="{{ option.url }}"> {{ option.label }}</a>
+        <div>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="{{ option.icon }}"
+          ></mat-icon>
+        </div>
+        <div>
+          <a routerLink="{{ option.url }}"> {{ option.label }}</a>
+        </div>
       </li>
     </ul>
   </div>
