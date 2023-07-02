@@ -49,11 +49,14 @@
       <form action="" class="profile-form">
         <mat-form-field class="phone-code" appearance="outline">
           <mat-label>Código de área</mat-label>
-          <mat-select [(value)]="areaCode">
-            <mat-option value="1">+1</mat-option>
-            <mat-option value="52">+52</mat-option>
-            <mat-option value="55">+55</mat-option>
-            <mat-option value="56">+56</mat-option>
+          <mat-select>
+            <mat-option
+              *ngFor="let area of countries; let index"
+              [value]="area.idd.root"
+            >
+              <div><img src="{{ area.flags.png }}" class="img-flag" /></div>
+              <div>{{ area.idd.root }}{{ area?.idd?.suffixes }}</div>
+            </mat-option>
           </mat-select>
         </mat-form-field>
 

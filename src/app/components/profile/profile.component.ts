@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CountriesService } from './countries.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,8 +17,10 @@ export class ProfileComponent {
   public areaCode: string = '';
   public celphone: string = '';
   public person: any;
+  public countries: any;
+  subscription: any;
 
-  constructor() {}
+  constructor(private countrieService: CountriesService) {}
 
   ngOnInit() {
     this.obtenerLocalstorage();
@@ -26,5 +29,11 @@ export class ProfileComponent {
   obtenerLocalstorage() {
     this.person = JSON.parse(localStorage.getItem('persona') || '{}');
     console.log('persona', this.person);
+  }
+  getContries() {
+    return this.countrieService.getCountries().subscribe((res) => {
+      this.countries = res;
+      console.log('paises', this.countries);
+    });
   }
 }

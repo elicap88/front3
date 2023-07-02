@@ -8,7 +8,7 @@ import data from '../../../../assets/data/data.json';
 export class PaymentsService {
   constructor() {}
 
-  getJobs() {
+  getPayments() {
     return of([data]).pipe(delay(1000));
   }
 }

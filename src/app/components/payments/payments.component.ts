@@ -86,16 +86,18 @@ export class PaymentsComponent {
   }
 
   getPaymenyts() {
-    this.subscription = this.paymentSevice.getJobs().subscribe((res: any) => {
-      if (res) {
-        this.payments = res[0];
-        this.dataSource.data = this.payments;
-        this.getTotalAmount(this.payments);
-        this.category = this.frequencyCategory(this.payments);
-        this.expireSeven = this.toExpire7Days(this.payments);
-        this.toExpireT = this.toExpireToday(this.payments);
-      }
-    });
+    this.subscription = this.paymentSevice
+      .getPayments()
+      .subscribe((res: any) => {
+        if (res) {
+          this.payments = res[0];
+          this.dataSource.data = this.payments;
+          this.getTotalAmount(this.payments);
+          this.category = this.frequencyCategory(this.payments);
+          this.expireSeven = this.toExpire7Days(this.payments);
+          this.toExpireT = this.toExpireToday(this.payments);
+        }
+      });
   }
 
   getTotalAmount(data: any) {
@@ -123,7 +125,6 @@ export class PaymentsComponent {
         valorMasRepetido = elem;
       }
     });
-    console.log([valorMasRepetido, maxFrecuencia]); // Salida: 2
     return [valorMasRepetido, maxFrecuencia];
   }
 
@@ -134,9 +135,8 @@ export class PaymentsComponent {
     fechas.forEach((fecha) => {
       let date = new Date(fecha.expire);
       const diferencia = date.getTime() - hoy.getTime();
-      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24)); // calcular la diferencia en días
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
       if (dias >= 0 && dias <= 7) {
-        // si la fecha está dentro de los próximos 7 días
         coincidencias.push(date);
       }
     });
@@ -147,7 +147,6 @@ export class PaymentsComponent {
     const hoy = new Date();
     const diaDeLaFecha = hoy.getDate();
     const mesDeLaFecha = hoy.getUTCMonth() + 1;
-    //const mesDeLaFecha = mes + 1;
     const anioDeLaFecha = hoy.getFullYear();
     let cantidadDeCoincidencias = 0;
 
