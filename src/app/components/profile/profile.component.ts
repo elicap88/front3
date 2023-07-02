@@ -15,4 +15,16 @@ export class ProfileComponent {
 
   public areaCode: string = '';
   public celphone: string = '';
+  public person: any;
+
+  constructor() {}
+
+  ngOnInit() {
+    this.obtenerLocalstorage();
+  }
+
+  obtenerLocalstorage() {
+    this.person = JSON.parse(localStorage.getItem('persona') || '{}');
+    console.log('persona', this.person);
+  }
 }

@@ -33,20 +33,13 @@ export class LoginComponent {
     localStorage.setItem('persona', JSON.stringify(data));
   }
 
-  obtenerLocalstorage() {
-    let persona = JSON.parse(localStorage.getItem('persona') || '{}');
-    console.log('persona', persona);
-  }
-
   login() {
-    this.obtenerLocalstorage();
     const params = {
       username: this.email,
       password: this.password,
     };
 
     return this.loginService.login(params).subscribe((res) => {
-      console.log('res', res);
       if (res) {
         this.grabarLocalStorage(res);
         this.router.navigate(['/home/payments']);

@@ -7,7 +7,9 @@
     <p>{{ information }}</p>
 
     <div class="profile-user-img-container">
-      <span class="clircle">D</span>
+      <span class="clircle">
+        <img class="img-profile" src="{{ person.image }}" />
+      </span>
       <div class="imgs-info">
         <p>Tamaño máximo:</p>
         <p>720 x 720px.png or jpeg</p>
@@ -18,11 +20,23 @@
     <div class="profile-form">
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Nombres</mat-label>
-        <input matInput placeholder="" value="" type="text" />
+        <input
+          matInput
+          placeholder=""
+          value=""
+          type="text"
+          [(ngModel)]="person.firstName"
+        />
       </mat-form-field>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Apellidos</mat-label>
-        <input matInput placeholder="" value="" type="text" />
+        <input
+          matInput
+          placeholder=""
+          value=""
+          type="text"
+          [(ngModel)]="person.lastName"
+        />
       </mat-form-field>
     </div>
   </section>
@@ -65,7 +79,12 @@
       <form action="" class="profile-form">
         <mat-form-field class="email-form" appearance="outline">
           <mat-label>{{ email }}</mat-label>
-          <input matInput type="email" />
+          <input
+            matInput
+            type="email"
+            [(ngModel)]="person.email"
+            [ngModelOptions]="{ standalone: true }"
+          />
         </mat-form-field>
       </form>
       <button class="upload-photo">Cambiar</button>

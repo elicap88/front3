@@ -36,6 +36,12 @@
   border-radius: 50%;
 }
 
+.img-profile {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
 .imgs-info {
   font-size: 10px;
   color: #bebebe;
@@ -93,4 +99,10 @@
 
 .email-form {
   width: inherit;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
