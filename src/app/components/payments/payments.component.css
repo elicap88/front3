@@ -112,6 +112,10 @@
         flex-flow: column;
       }
     }
+
+    .payment-body {
+      padding-right: 5rem;
+    }
   }
 
   & .divider {

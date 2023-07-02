@@ -4,26 +4,8 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SelectionModel } from '@angular/cdk/collections';
 import { PaymentsService } from './services/payments.service';
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-];
+import { ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-payments',
@@ -32,16 +14,26 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class PaymentsComponent {
   payments: any;
+  totalAmount: any = 0;
+  supplierHigherAmount: any = 0;
+  frequentCategory: any;
+  supplierHigher: string = '';
+  category: any;
+  expireSeven: number = 0;
+  toExpireT: number = 0;
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
   displayedColumns: string[] = [
     'select',
-    'position',
-    'name',
-    'weight',
-    'symbol',
+    'payment',
+    'supplier',
+    'category',
+    'expire',
+    'price',
+    'state',
   ];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  selection = new SelectionModel<PeriodicElement>(true, []);
+  dataSource = new MatTableDataSource<any>();
+  selection = new SelectionModel<any>(true, []);
 
   payment = 'Pagos';
   subscription: any;
@@ -68,32 +60,127 @@ export class PaymentsComponent {
   payInfo: PaymentInfo[] = [
     {
       label: 'Total a pagar',
-      info: '$600.000',
-      total: 'Total pagos: 3(5facturas)',
     },
     {
       label: 'Por vencer en 7 días',
-      info: '8 facturas',
-      total: 'Hoy: 4 facturas',
     },
     {
       label: 'Proveedor mayor monto',
-      info: 'Clínica de piel',
-      total: 'Total: $3.000.000',
     },
     {
       label: 'Categoría más frecuente',
-      info: 'Servicios de salud',
-      total: 'Frecuencia: 8',
     },
   ];
 
   constructor(private paymentSevice: PaymentsService) {}
 
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
   ngOnInit() {
-    this.subscription = this.paymentSevice.getJobs().subscribe((res) => {
-      this.payments = res[0];
-      console.log('this.payments', this.payments);
+    this.dataSource.paginator = this.paginator;
+    this.getPaymenyts();
+  }
+
+  getPaymenyts() {
+    this.subscription = this.paymentSevice.getJobs().subscribe((res: any) => {
+      if (res) {
+        this.payments = res[0];
+        this.dataSource.data = this.payments;
+        this.getTotalAmount(this.payments);
+        this.category = this.frequencyCategory(this.payments);
+        this.expireSeven = this.toExpire7Days(this.payments);
+        this.toExpireT = this.toExpireToday(this.payments);
+      }
     });
+  }
+
+  getTotalAmount(data: any) {
+    data.forEach((element: any, i: number) => {
+      if (element.price) {
+        this.totalAmount = this.totalAmount + element.price;
+      }
+      if (element.price > this.supplierHigherAmount) {
+        this.supplierHigherAmount = element.price;
+        this.supplierHigher = element.supplier;
+      }
+    });
+  }
+
+  frequencyCategory(arr: any[]) {
+    const frecuencia = new Map<string, number>();
+    let maxFrecuencia = 0;
+    let valorMasRepetido: any;
+
+    arr.forEach((elem) => {
+      let freq = (frecuencia.get(elem.category) || 0) + 1;
+      frecuencia.set(elem.category, freq);
+      if (freq > maxFrecuencia) {
+        maxFrecuencia = freq;
+        valorMasRepetido = elem;
+      }
+    });
+    console.log([valorMasRepetido, maxFrecuencia]); // Salida: 2
+    return [valorMasRepetido, maxFrecuencia];
+  }
+
+  toExpire7Days(fechas: any[]): number {
+    const coincidencias: Date[] = [];
+    const hoy = new Date();
+
+    fechas.forEach((fecha) => {
+      let date = new Date(fecha.expire);
+      const diferencia = date.getTime() - hoy.getTime();
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24)); // calcular la diferencia en días
+      if (dias >= 0 && dias <= 7) {
+        // si la fecha está dentro de los próximos 7 días
+        coincidencias.push(date);
+      }
+    });
+    return coincidencias.length;
+  }
+
+  toExpireToday(fechas: any[]) {
+    const hoy = new Date();
+    const diaDeLaFecha = hoy.getDate();
+    const mesDeLaFecha = hoy.getUTCMonth() + 1;
+    //const mesDeLaFecha = mes + 1;
+    const anioDeLaFecha = hoy.getFullYear();
+    let cantidadDeCoincidencias = 0;
+
+    fechas.forEach((fecha) => {
+      let date = new Date(fecha.expire);
+      if (
+        diaDeLaFecha === date.getDate() + 1 &&
+        mesDeLaFecha === date.getUTCMonth() &&
+        anioDeLaFecha === date.getFullYear()
+      ) {
+        cantidadDeCoincidencias++;
+      }
+    });
+
+    return cantidadDeCoincidencias;
+  }
+
+  /** The label for the checkbox on the passed row */
+  checkboxLabel(row?: any): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
+      row.position + 1
+    }`;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  toggleAllRows() {
+    if (this.isAllSelected()) {
+      this.selection.clear();
+      return;
+    }
+    this.selection.select(...this.dataSource.data);
   }
 }
