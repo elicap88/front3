@@ -1,0 +1,96 @@
+.profiles-container {
+  padding: 2rem;
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+}
+
+.profiles-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.profiles-body {
+  padding-left: 2.5rem;
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+}
+
+.profile-user-img-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.clircle {
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #809bfc;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.imgs-info {
+  font-size: 10px;
+  color: #bebebe;
+}
+
+.profile-form {
+  display: flex;
+  flex-flow: column;
+  width: 22rem;
+}
+
+.divider {
+  height: 2px;
+  background-color: #bebebe;
+  margin: 0 2.5rem;
+}
+
+.profile-phone-container {
+  padding: 0 2.5rem 0 2.5rem;
+  display: flex;
+  gap: 2rem;
+  flex-flow: column;
+}
+
+.profile-vertical-align {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-form {
+  display: flex;
+  flex-flow: row;
+  gap: 1rem;
+}
+
+.phone-code {
+  width: 8rem;
+}
+
+.upload-photo {
+  width: 6rem;
+  height: 2rem;
+  border: 2px solid #809bfc;
+  color: #809bfc;
+  background-color: #fff;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+
+.upload-photo:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.email-form {
+  width: inherit;
+}

@@ -1,6 +1,8 @@
 import { Component, forwardRef } from '@angular/core';
 import { LoginService } from './services/login.service';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,7 +15,7 @@ export class LoginComponent {
   public dato: string | null = '';
   public title: string = 'Tiaca';
 
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -40,13 +42,14 @@ export class LoginComponent {
     this.obtenerLocalstorage();
     const params = {
       username: this.email,
-      password: this,
+      password: this.password,
     };
 
     return this.loginService.login(params).subscribe((res) => {
       console.log('res', res);
       if (res) {
         this.grabarLocalStorage(res);
+        this.router.navigate(['/home/payments']);
       }
       // this.address = res;
     });

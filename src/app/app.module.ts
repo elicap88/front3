@@ -17,6 +17,8 @@ import { PaymentsComponent } from './components/payments/payments.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ProfileComponent } from './components/profile/profile.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HomeComponent,
     SidebarComponent,
     PaymentsComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCheckboxModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

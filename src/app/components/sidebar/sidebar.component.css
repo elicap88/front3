@@ -23,6 +23,10 @@
 
     & .sideBarOptions {
       padding: 1rem;
+      > a {
+        text-decoration: none;
+        color: #767380;
+      }
     }
 
     & .sideBarOptions:hover {

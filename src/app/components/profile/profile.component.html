@@ -1,0 +1,102 @@
+<main class="profiles-container">
+  <header class="profiles-header">
+    <mat-icon>keyboard_backspace</mat-icon>
+    <h1>{{ title }}</h1>
+  </header>
+  <section class="profiles-body">
+    <p>{{ information }}</p>
+
+    <div class="profile-user-img-container">
+      <span class="clircle">D</span>
+      <div class="imgs-info">
+        <p>Tamaño máximo:</p>
+        <p>720 x 720px.png or jpeg</p>
+      </div>
+    </div>
+    <button class="upload-photo">Cargar foto</button>
+
+    <div class="profile-form">
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Nombres</mat-label>
+        <input matInput placeholder="" value="" type="text" />
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Apellidos</mat-label>
+        <input matInput placeholder="" value="" type="text" />
+      </mat-form-field>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="profile-phone-container">
+    <p>{{ phone }}</p>
+    <div class="profile-vertical-align">
+      <form action="" class="profile-form">
+        <mat-form-field class="phone-code" appearance="outline">
+          <mat-label>Código de área</mat-label>
+          <mat-select [(value)]="areaCode">
+            <mat-option value="1">+1</mat-option>
+            <mat-option value="52">+52</mat-option>
+            <mat-option value="55">+55</mat-option>
+            <mat-option value="56">+56</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="phone-number" appearance="outline">
+          <mat-label>Número de teléfono</mat-label>
+          <input
+            matInput
+            type="number"
+            [(ngModel)]="celphone"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </mat-form-field>
+      </form>
+      <button class="upload-photo">Cambiar</button>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="profile-phone-container">
+    <p>{{ email }}</p>
+    <div class="profile-vertical-align">
+      <form action="" class="profile-form">
+        <mat-form-field class="email-form" appearance="outline">
+          <mat-label>{{ email }}</mat-label>
+          <input matInput type="email" />
+        </mat-form-field>
+      </form>
+      <button class="upload-photo">Cambiar</button>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="profile-phone-container">
+    <p>{{ password }}</p>
+    <div class="profile-vertical-align">
+      <p>Elige una contraseña segura</p>
+      <button class="upload-photo">Cambiar</button>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="profile-phone-container">
+    <p>{{ auth }}</p>
+    <div class="profile-vertical-align">
+      <div class="message-container">
+        <p>
+          Mantenga su cuenta segura con nuestro método de autenticación de
+          multifactor.
+        </p>
+        <p>Debes tener al menos un método habilitado.</p>
+      </div>
+      <button class="upload-photo">Cambiar</button>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+</main>

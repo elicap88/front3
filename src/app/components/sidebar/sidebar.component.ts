@@ -22,7 +22,7 @@ export class SidebarComponent {
     {
       label: 'Pagos',
       icon: '#',
-      url: '/payments',
+      url: 'payments',
     },
     {
       label: 'Menú 3',
@@ -35,14 +35,19 @@ export class SidebarComponent {
       url: '/banks',
     },
     {
-      label: 'Menú 4',
+      label: 'Perfil',
       icon: '#',
-      url: '#',
+      url: 'profile',
     },
     {
       label: 'Menú 5',
       icon: '#',
       url: '#',
+    },
+    {
+      label: 'Logout',
+      icon: '#',
+      url: '/login',
     },
   ];
 }
