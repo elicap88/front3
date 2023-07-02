@@ -8,6 +8,8 @@
   gap: 3rem;
   margin-top: 2rem;
   padding: 0.5rem;
+  height: 94vh;
+  justify-content: space-between;
 
   & .sideBarTitle {
     color: var(--title-text-color);
@@ -19,7 +21,6 @@
     flex-flow: column;
     list-style: none;
     padding: 0;
-    gap: 1rem;
 
     & .sideBarOptions {
       padding: 1rem;
@@ -33,6 +34,41 @@
       background-color: #ece6fe;
       cursor: pointer;
       font-weight: bold;
+    }
+  }
+
+  .user-card {
+    display: flex;
+    padding: 0.5rem;
+    border: 1px solid #bebebe;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    background-color: #f3f3f3;
+    gap: 1rem;
+
+    .user-card-profile {
+      background-color: #373d6f;
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+    }
+
+    .user-card-user-name {
+      display: flex;
+      flex-flow: column;
+      font-size: 10px;
+      justify-content: center;
     }
   }
 }

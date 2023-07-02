@@ -1,8 +1,17 @@
 <aside class="sideBarContainer">
-  <h1 class="sideBarTitle">{{ title }}</h1>
-  <ul class="sideBarList">
-    <li class="sideBarOptions" *ngFor="let option of sideBarOption">
-      <a routerLink="{{ option.url }}"> {{ option.label }}</a>
-    </li>
-  </ul>
+  <div class="side-bar-section">
+    <h1 class="sideBarTitle">{{ title }}</h1>
+    <ul class="sideBarList">
+      <li class="sideBarOptions" *ngFor="let option of sideBarOption">
+        <a routerLink="{{ option.url }}"> {{ option.label }}</a>
+      </li>
+    </ul>
+  </div>
+  <section class="user-card">
+    <div class="user-card-profile">D</div>
+    <div class="user-card-user-name">
+      <p>Daniel</p>
+      <p>Factory Demo</p>
+    </div>
+  </section>
 </aside>
